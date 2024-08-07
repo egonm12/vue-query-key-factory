@@ -7,12 +7,13 @@ import {ref, unref} from "vue";
 
 const val = ref('')
 
-const { data } = useQuery({
+const appQuery = useQuery({
   queryKey: ["byTool", val],
   queryFn: async () => `My value is ${unref(val)}`,
 });
 
-const { data } = useQuery(queries.value.someQuery(val))
+const someQuery = useQuery(queries.value.someQuery(val))
+const someOtherQuery = useQuery(queries.value.someOtherQuery(val))
 </script>
 
 <template>
